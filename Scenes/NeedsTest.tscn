@@ -7,7 +7,17 @@
 [node name="NeedsTest" type="Node2D"]
 
 [node name="NeedA" parent="." instance=ExtResource( 1 )]
-amount = 13.0
+label_name = "Need A"
+need_key = "A"
+need_source_path = NodePath("../NeedSource")
+
+[node name="NeedB" parent="." instance=ExtResource( 1 )]
+margin_left = 1.25992
+margin_top = 83.1548
+margin_right = 220.26
+margin_bottom = 211.155
+label_name = "Need B"
+need_key = "B"
 need_source_path = NodePath("../NeedSource")
 
 [node name="NeedSource" type="Node2D" parent="."]

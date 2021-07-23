@@ -10,7 +10,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 label_name = "Something"
-amount = 25.0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_left = 6.29959
@@ -31,7 +30,7 @@ margin_right = 210.079
 margin_bottom = 24.0794
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Need A"
+text = "<NEED LABEL>"
 __meta__ = {
 "_edit_use_anchors_": false
 }
