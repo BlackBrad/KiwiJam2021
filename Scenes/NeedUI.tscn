@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/NeedUI.gd" type="Script" id=1]
+
+[node name="NeedUI" type="Control"]
+margin_right = 219.0
+margin_bottom = 128.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+label_name = "Something"
+amount = 25.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = 6.29959
+margin_top = 32.7579
+margin_right = 206.3
+margin_bottom = 62.7579
+size_flags_horizontal = 3
+size_flags_vertical = 2
+value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 10.0793
+margin_top = 10.0794
+margin_right = 210.079
+margin_bottom = 24.0794
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Need A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
