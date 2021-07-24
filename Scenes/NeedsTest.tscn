@@ -66,6 +66,7 @@ substance = 2
 rate = 0.2
 
 [node name="SubstanceSpawner" parent="World" instance=ExtResource( 7 )]
+position = Vector2( 395.553, 55.4374 )
 substance_scene = ExtResource( 4 )
 
 [node name="PanelContainer" type="PanelContainer" parent="World"]

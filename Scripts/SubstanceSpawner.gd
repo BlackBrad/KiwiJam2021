@@ -9,15 +9,17 @@ onready var timer = $Timer
 func _ready():
 	on_timeout()
 	timer.connect('timeout', self, 'on_timeout')
+	timer.wait_time = spawn_time
 
 func on_timeout():
 	var substance = substance_scene.instance()
 	substance.substance = Globals.Substances.OATS
 	substance.amount = 100
-	substance.rate = 0.5
+	substance.rate = 10.5
+	substance.connect('on_empty', self, 'on_empty')
 	add_child(substance)
 	print('spawn substance')
 
 func on_empty():
-	# TODO: Start timer to spawn new substance
-	pass
+	print('on_empty')
+	timer.start()
