@@ -7,6 +7,7 @@ export(float) var amount = 100.0
 export(float) var rate = 1
 
 onready var label = $Label
+onready var audio_player = $AudioStreamPlayer
 
 var _is_connected = false
 
@@ -21,6 +22,7 @@ func get_drag_data(position):
 	print('get_drag_data called')
 	var preview = self.duplicate()
 	set_drag_preview(preview)
+	audio_player.play()
 	return weakref(self)
 
 func drain_substance():
@@ -40,6 +42,7 @@ func on_mouse_exited():
 	label.hide()
 
 func on_connect_to_sink():
+	audio_player.play()
 	_is_connected = true
 
 func is_connected_to_sink():

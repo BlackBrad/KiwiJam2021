@@ -14,6 +14,8 @@ export(NodePath) var death_screen_path
 var source = weakref(null)
 var death_screen
 
+var is_alive = true
+
 var needs = {
 	Globals.Needs.A: 0.0,
 	Globals.Needs.B: 0.0,
@@ -45,7 +47,8 @@ func _ready():
 	death_screen = get_node(death_screen_path)
 
 func _physics_process(delta):
-	var decay_rates = {
+	if is_alive:
+  	var decay_rates = {
 		Globals.Needs.A: need_a_drain_rate,
 		Globals.Needs.B: need_b_drain_rate
 	}
@@ -69,6 +72,7 @@ func _physics_process(delta):
 	for need in needs:
 		if needs[need] <= 0.0: 
 			on_death();
+			is_alive = false
 
 func get_needs_value(key):
 	return needs[key]

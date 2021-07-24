@@ -15,4 +15,3 @@ func on_connect_substance(substance_source):
 func _physics_process(delta):
 	if source.get_ref():
 		var substance = source.get_ref().drain_substance()
-		print('Draining substance %s' % substance)
