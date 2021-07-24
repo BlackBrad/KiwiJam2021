@@ -1,7 +1,9 @@
 extends Control
 
+const Globals = preload('res://Scripts/Globals.gd')
+
 export(String) var label_name = "<NEED NAME>"
-export(String) var need_key = "INVALID"
+export(Globals.Needs) var need_key = Globals.Needs.A
 export(NodePath) var need_source_path
 
 onready var label = $Label

@@ -1,6 +1,6 @@
 extends Control
 
-signal connect_substance
+signal connect_substance(substance)
 
 func can_drop_data(position, data):
 	print('can_drop_data called')
@@ -10,5 +10,5 @@ func can_drop_data(position, data):
 	return true
 
 func drop_data(position, data):
-	print('drop_data called')
-	emit_signal('connect_substance')
+	print('drop_data called %s' % data)
+	emit_signal('connect_substance', data)
