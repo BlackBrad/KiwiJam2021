@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/NeedUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/NeedSource.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/DragTest.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Substance.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/DropTest.gd" type="Script" id=5]
 
 [node name="NeedsTest" type="Node2D"]
@@ -29,27 +29,12 @@ pipe_entrance_path = NodePath("../DropTest")
 [node name="Sprite" type="Sprite" parent="NeedSource"]
 texture = ExtResource( 2 )
 
-[node name="DragTest" type="Control" parent="."]
-margin_left = 569.484
-margin_top = 32.7579
-margin_right = 609.484
-margin_bottom = 72.7579
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Oats" parent="." instance=ExtResource( 4 )]
 
-[node name="ColorRect" type="ColorRect" parent="DragTest"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-mouse_filter = 2
-color = Color( 0.992157, 0, 1, 1 )
+[node name="SoySauce" parent="." instance=ExtResource( 4 )]
+margin_left = 659.484
+margin_right = 699.484
+substance = 1
 
 [node name="DropTest" type="Control" parent="."]
 margin_left = 665.0

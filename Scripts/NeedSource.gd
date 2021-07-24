@@ -35,10 +35,20 @@ func _physics_process(delta):
 		needs[key] += need_rates[key] * delta
 		needs[key] = clamp(needs[key], 0.0, 100.0)
 
+	# Check for death
+	if needs[Globals.Needs.A] <= 0.0:
+		print("HE DEAD")
+
 func get_needs_value(key):
 	return needs[key]
 
 func on_connect_substance(substance):
 	print('on_connect_substance called %s' % substance)
+	for key in need_rates:
+		need_rates[key] = 0
+
 	if substance == Globals.Substances.OATS:
 		need_rates[Globals.Needs.A] = 5.0
+		need_rates[Globals.Needs.B] = -0.5
+	if substance == Globals.Substances.SOY_SAUCE:
+		need_rates[Globals.Needs.B] = 2.2
