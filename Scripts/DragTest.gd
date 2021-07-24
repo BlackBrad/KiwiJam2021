@@ -6,6 +6,13 @@ export(Globals.Substances) var substance = Globals.Substances.NONE
 export(float) var amount = 100.0
 export(float) var rate = 1
 
+onready var label = $Label
+
+func _ready():
+	connect('mouse_entered', self, 'on_mouse_entered')
+	connect('mouse_exited', self, 'on_mouse_exited')
+	label.text = Globals.Substances.keys()[substance]
+
 func get_drag_data(position):
 	print('get_drag_data called')
 	var preview = self.duplicate()
@@ -19,3 +26,9 @@ func drain_substance():
 	else:
 		amount = 0
 		return Globals.Substances.NONE
+
+func on_mouse_entered():
+	label.show()
+
+func on_mouse_exited():
+	label.hide()

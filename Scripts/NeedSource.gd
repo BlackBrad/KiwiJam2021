@@ -34,7 +34,6 @@ func _physics_process(delta):
 		var substance = source.drain_substance()
 		print('Draining substance %s' % substance)
 		if substance == Globals.Substances.OATS:
-			print("OATS")
 			need_rates[Globals.Needs.A] = 5.0
 			need_rates[Globals.Needs.B] = -0.5
 		if substance == Globals.Substances.SOY_SAUCE:
