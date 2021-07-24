@@ -13,7 +13,7 @@ func _ready():
 
 func on_timeout():
 	var substance = substance_scene.instance()
-	substance.substance = Globals.Substances.HOT_WATER
+	substance.substance = Globals.Substances.HOT_MILK
 	substance.amount = 100
 	substance.rate = 0.1
 	substance.connect('on_empty', self, 'on_empty')
