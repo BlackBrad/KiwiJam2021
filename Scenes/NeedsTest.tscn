@@ -1,25 +1,59 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/NeedUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/NeedSource.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Substance.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/DropTest.gd" type="Script" id=5]
+[ext_resource path="res://Art/mockup.png" type="Texture" id=6]
 
 [node name="NeedsTest" type="Node2D"]
 
-[node name="NeedA" parent="." instance=ExtResource( 1 )]
-label_name = "Need A"
-need_source_path = NodePath("../NeedSource")
+[node name="Mockup" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1404.0
+margin_bottom = 595.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="NeedB" parent="." instance=ExtResource( 1 )]
-margin_left = 1.25992
-margin_top = 83.1548
-margin_right = 220.26
-margin_bottom = 211.155
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 7.0
+margin_top = 93.0
+margin_right = 255.0
+margin_bottom = 336.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 241.0
+margin_bottom = 236.0
+
+[node name="NeedA" parent="PanelContainer/GridContainer" instance=ExtResource( 1 )]
+label_name = "Need A"
+need_source_path = NodePath("../../../NeedSource")
+
+[node name="NeedB" parent="PanelContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 69.0
+margin_bottom = 134.0
 label_name = "Need B"
 need_key = 1
-need_source_path = NodePath("../NeedSource")
+need_source_path = NodePath("../../../NeedSource")
+
+[node name="NeedC" parent="PanelContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 138.0
+margin_bottom = 203.0
+label_name = "Need C"
+need_key = 1
+need_source_path = NodePath("../../../NeedSource")
 
 [node name="NeedSource" type="Node2D" parent="."]
 position = Vector2( 366.637, 244.425 )
@@ -37,10 +71,11 @@ margin_right = 699.484
 substance = 1
 
 [node name="DropTest" type="Control" parent="."]
-margin_left = 665.0
-margin_top = 273.0
-margin_right = 864.0
-margin_bottom = 391.0
+margin_left = 588.0
+margin_top = 243.0
+margin_right = 628.0
+margin_bottom = 283.0
+rect_min_size = Vector2( 40, 40 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
