@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Kiwi Jam 2021"
-run/main_scene="res://Scenes/NeedsTest.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SceneSwitcher="*res://Scripts/SceneSwitcher.gd"
 
 [input]
 
