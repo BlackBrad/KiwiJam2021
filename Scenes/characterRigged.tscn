@@ -881,7 +881,7 @@ tracks/72/loop_wrap = true
 tracks/72/imported = false
 tracks/72/enabled = true
 tracks/72/keys = {
-"times": PoolRealArray( 0, 3, 3.1, 4.9, 5 ),
+"times": PoolRealArray( 0, 3, 3.2, 4.9, 5.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ) ]
@@ -977,7 +977,6 @@ bones = [ NodePath("root_jnt"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 internal_vertex_count = 23
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Character"]
-visible = false
 
 [node name="root_jnt" type="Bone2D" parent="Character/Skeleton2D"]
 position = Vector2( 1934.61, 660.827 )
@@ -1080,7 +1079,6 @@ rest = Transform2D( 1, 0, 0, 1, -225.411, 66.6708 )
 [node name="tumtum_jnt" type="Bone2D" parent="Character/Skeleton2D/root_jnt"]
 position = Vector2( -316, -176 )
 rotation = 2.67262
-scale = Vector2( 1, 1 )
 rest = Transform2D( -0.892031, 0.451974, -0.451974, -0.892031, -316, -176 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
