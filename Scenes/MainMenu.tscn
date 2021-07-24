@@ -30,6 +30,9 @@ margin_bottom = 412.557
 custom_fonts/font = ExtResource( 2 )
 text = "Play"
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="QuitButton" type="Button" parent="."]
 margin_left = 16.1572

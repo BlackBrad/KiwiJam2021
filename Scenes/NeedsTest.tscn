@@ -51,25 +51,25 @@ position = Vector2( 724.027, 362.014 )
 position = Vector2( 624.669, 358.466 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="Oats" parent="World" instance=ExtResource( 4 )]
-margin_left = 527.0
-margin_top = 21.0
-margin_right = 567.0
-margin_bottom = 61.0
-substance = 1
-rate = 0.1
-
-[node name="SoySauce" parent="World" instance=ExtResource( 4 )]
-margin_left = 659.484
-margin_top = 21.0
-margin_right = 699.484
-margin_bottom = 61.0
-substance = 2
-rate = 0.2
-
 [node name="SubstanceSpawner" parent="World" instance=ExtResource( 7 )]
 position = Vector2( 395.553, 55.4374 )
 substance_scene = ExtResource( 4 )
+
+[node name="SoySauce" parent="World" instance=ExtResource( 4 )]
+margin_left = 479.34
+margin_top = 1.42596
+margin_right = 579.34
+margin_bottom = 131.426
+substance = 2
+rate = 2.0
+
+[node name="Oats" parent="World" instance=ExtResource( 4 )]
+margin_left = 606.619
+margin_top = 1.42596
+margin_right = 706.619
+margin_bottom = 131.426
+substance = 1
+rate = 4.0
 
 [node name="PanelContainer" type="PanelContainer" parent="World"]
 margin_left = 7.0

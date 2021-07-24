@@ -50,30 +50,30 @@ func _physics_process(delta):
 	var decay_rates = {}
 	if is_alive:
 		decay_rates = {
-		Globals.Needs.A: need_a_drain_rate,
-		Globals.Needs.B: need_b_drain_rate
-	}
-	var need_rates = {}
-	
-	for need in decay_rates:
-		need_rates[need] = decay_rates[need]
+			Globals.Needs.A: need_a_drain_rate,
+			Globals.Needs.B: need_b_drain_rate
+		}
+		var need_rates = {}
+		
+		for need in decay_rates:
+			need_rates[need] = decay_rates[need]
 
-	if source.get_ref():
-		var substance = source.get_ref().drain_substance()
-		print("Applying effect:")
-		print(boy_status_effects[substance])
-		for key in boy_status_effects[substance]:
-			need_rates[key] += boy_status_effects[substance][key]
-	
-	for key in needs:
-		needs[key] += need_rates[key] * delta
-		needs[key] = clamp(needs[key], 0.0, 100.0)
+		if source.get_ref():
+			var substance = source.get_ref().drain_substance(delta)
+			print("Applying effect:")
+			print(boy_status_effects[substance])
+			for key in boy_status_effects[substance]:
+				need_rates[key] += boy_status_effects[substance][key]
+		
+		for key in needs:
+			needs[key] += need_rates[key] * delta
+			needs[key] = clamp(needs[key], 0.0, 100.0)
 
-	# Check for death
-	for need in needs:
-		if needs[need] <= 0.0: 
-			on_death();
-			is_alive = false
+		# Check for death
+		for need in needs:
+			if needs[need] <= 0.0: 
+				on_death();
+				is_alive = false
 
 func get_needs_value(key):
 	return needs[key]

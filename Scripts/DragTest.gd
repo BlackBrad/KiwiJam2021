@@ -25,9 +25,9 @@ func get_drag_data(position):
 	audio_player.play()
 	return weakref(self)
 
-func drain_substance():
+func drain_substance(delta):
 	if amount > rate:
-		amount -= rate
+		amount -= rate * delta
 		return substance
 	else:
 		amount = 0
@@ -35,11 +35,11 @@ func drain_substance():
 		queue_free()
 		return Globals.Substances.NONE
 
-func on_mouse_entered():
-	label.show()
+#func on_mouse_entered():
+	#label.show()
 
-func on_mouse_exited():
-	label.hide()
+#func on_mouse_exited():
+	#label.hide()
 
 func on_connect_to_sink():
 	audio_player.play()
