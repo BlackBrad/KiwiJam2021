@@ -14,6 +14,8 @@ export(NodePath) var death_screen_path
 var source = weakref(null)
 var death_screen
 
+var is_alive = true
+
 var needs = {
 	Globals.Needs.A: 0.0,
 	Globals.Needs.B: 0.0,
@@ -29,31 +31,36 @@ func _ready():
 	death_screen = get_node(death_screen_path)
 
 func _physics_process(delta):
-	var need_rates = {}
+	if is_alive:
+		var need_rates = {}
 
-	for key in needs:
-		need_rates[key] = 0
+		for key in needs:
+			need_rates[key] = 0
 
-	if source.get_ref():
-		var substance = source.get_ref().drain_substance()
-		print('Draining substance %s' % substance)
-		if substance == Globals.Substances.OATS:
-			need_rates[Globals.Needs.A] = 5.0
-			need_rates[Globals.Needs.B] = -0.5
-		if substance == Globals.Substances.SOY_SAUCE:
-			need_rates[Globals.Needs.B] = 2.2
+		if source.get_ref():
+			var substance = source.get_ref().drain_substance()
+			print('Draining substance %s' % substance)
+			if substance == Globals.Substances.OATS:
+				need_rates[Globals.Needs.A] = 5.0
+				need_rates[Globals.Needs.B] = -0.5
+			if substance == Globals.Substances.SOY_SAUCE:
+				need_rates[Globals.Needs.B] = 2.2
 
-	needs[Globals.Needs.A] += -need_a_drain_rate * delta
-	needs[Globals.Needs.B] += -need_b_drain_rate * delta
+		needs[Globals.Needs.A] += -need_a_drain_rate * delta
+		needs[Globals.Needs.B] += -need_b_drain_rate * delta
 
-	for key in needs:
-		needs[key] += need_rates[key] * delta
-		needs[key] = clamp(needs[key], 0.0, 100.0)
+		for key in needs:
+			needs[key] += need_rates[key] * delta
+			needs[key] = clamp(needs[key], 0.0, 100.0)
 
-	# Check for death
-	if needs[Globals.Needs.A] <= 0.0:
-		print("HE DEAD")
-		on_death()
+		if Input.is_action_just_pressed('kill_man_meat'):
+			needs[Globals.Needs.A] = 0.0
+
+		# Check for death
+		if needs[Globals.Needs.A] <= 0.0:
+			print("HE DEAD")
+			on_death()
+			is_alive = false
 
 func get_needs_value(key):
 	return needs[key]
