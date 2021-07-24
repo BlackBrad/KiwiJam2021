@@ -58,13 +58,13 @@ position = Vector2( 395.553, 55.4374 )
 substance_scene = ExtResource( 4 )
 
 [node name="SoySauce" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 564.445, 46.6171 )
+position = Vector2( 526.347, 110.113 )
 substance = 2
 amount = 60.0
 rate = 10.0
 
 [node name="Oats" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 667.758, 42.8373 )
+position = Vector2( 647.122, 111.096 )
 substance = 1
 rate = 4.0
 
