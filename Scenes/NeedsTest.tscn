@@ -111,6 +111,9 @@ need_key = 1
 need_source_path = NodePath("../../../ManMeat")
 
 [node name="TV" parent="World" instance=ExtResource( 2 )]
+position = Vector2( 493.984, 483.901 )
+rotation = 0.0847745
+scale = Vector2( 0.28, 0.28 )
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 
