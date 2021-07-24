@@ -52,15 +52,26 @@ death_screen_path = NodePath("../../Overlay/DeathScreen")
 [node name="SubstanceSpawner" parent="World" instance=ExtResource( 7 )]
 position = Vector2( 395.553, 55.4374 )
 substance_scene = ExtResource( 4 )
+spawn_time = 10.0
+
+[node name="SubstanceSpawner2" parent="World" instance=ExtResource( 7 )]
+position = Vector2( 533.657, 57.0248 )
+substance_scene = ExtResource( 4 )
+spawn_time = 10.0
+
+[node name="SubstanceSpawner3" parent="World" instance=ExtResource( 7 )]
+position = Vector2( 260.624, 50.6752 )
+substance_scene = ExtResource( 4 )
+spawn_time = 10.0
 
 [node name="SoySauce" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 526.347, 110.113 )
+position = Vector2( 970.82, 130.749 )
 substance = 2
 amount = 60.0
 rate = 10.0
 
 [node name="Oats" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 647.122, 111.096 )
+position = Vector2( 969.364, 299.996 )
 substance = 1
 rate = 4.0
 

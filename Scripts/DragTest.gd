@@ -39,6 +39,7 @@ func _ready():
 	connect('area_entered', self, 'on_area_entered')
 	connect('area_exited', self, 'on_area_exited')
 	label.text = Globals.Substances.keys()[substance]
+	_target_rotation = self.global_rotation
 
 func on_mouse_entered():
 	_mouse_in_area = true
@@ -90,6 +91,7 @@ func _input(event):
 
 	if event is InputEventMouseMotion and _state == State.Dragging:
 		_target_position = event.position
+		_target_rotation = 0.0
 
 func _physics_process(delta):
 	var acceleration = Vector2(0, 0)
@@ -115,11 +117,8 @@ func _physics_process(delta):
 	self.global_position += _velocity * delta
 
 	var angular_acceleration = 0.0
-	if _state == State.Snapping:
-		var diff = target_rotation - self.global_rotation
-		print('diff %f' % diff)
-		angular_acceleration = diff * 800.0
-		print('angular_acceleration %f' % angular_acceleration)
+	var diff = target_rotation - self.global_rotation
+	angular_acceleration = diff * 800.0
 
 	_angular_velocity += -_angular_velocity * 14.0 * delta;
 	_angular_velocity += angular_acceleration * delta;
