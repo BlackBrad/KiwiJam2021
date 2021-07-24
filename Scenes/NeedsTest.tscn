@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/NeedUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -7,14 +7,32 @@
 [ext_resource path="res://Scripts/DropTest.gd" type="Script" id=5]
 [ext_resource path="res://Art/mockup.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/SubstanceSpawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/RetryButton.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/DeathScreen.gd" type="Script" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeToBlack"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 0.164939, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [node name="NeedsTest" type="Node2D"]
 
-[node name="Mockup" type="TextureRect" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
+
+[node name="Mockup" type="TextureRect" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1404.0
-margin_bottom = 595.0
 mouse_filter = 2
 texture = ExtResource( 6 )
 expand = true
@@ -23,64 +41,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-margin_left = 7.0
-margin_top = 93.0
-margin_right = 255.0
-margin_bottom = 336.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="World" type="CanvasLayer" parent="."]
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 241.0
-margin_bottom = 236.0
-
-[node name="NeedA" parent="PanelContainer/GridContainer" instance=ExtResource( 1 )]
-label_name = "Need A"
-need_source_path = NodePath("../../../NeedSource")
-
-[node name="NeedB" parent="PanelContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 69.0
-margin_bottom = 134.0
-label_name = "Need B"
-need_key = 1
-need_source_path = NodePath("../../../NeedSource")
-
-[node name="NeedC" parent="PanelContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 138.0
-margin_bottom = 203.0
-label_name = "Need C"
-need_key = 1
-need_source_path = NodePath("../../../NeedSource")
-
-[node name="NeedSource" type="Node2D" parent="."]
-position = Vector2( 366.637, 244.425 )
-script = ExtResource( 3 )
-pipe_entrance_path = NodePath("../DropTest")
-
-[node name="Sprite" type="Sprite" parent="NeedSource"]
-texture = ExtResource( 2 )
-
-[node name="Oats" parent="." instance=ExtResource( 4 )]
-margin_left = 527.0
-margin_top = 21.0
-margin_right = 567.0
-margin_bottom = 61.0
-substance = 1
-rate = 0.1
-
-[node name="SoySauce" parent="." instance=ExtResource( 4 )]
-margin_left = 659.484
-margin_top = 21.0
-margin_right = 699.484
-margin_bottom = 61.0
-substance = 2
-rate = 0.2
-
-[node name="DropTest" type="Control" parent="."]
+[node name="DropTest" type="Control" parent="World"]
 margin_left = 588.0
 margin_top = 243.0
 margin_right = 628.0
@@ -91,7 +54,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="DropTest"]
+[node name="ColorRect" type="ColorRect" parent="World/DropTest"]
 margin_right = 40.0
 margin_bottom = 40.0
 mouse_filter = 2
@@ -100,5 +63,98 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SubstanceSpawner" parent="." instance=ExtResource( 7 )]
+[node name="PanelContainer" type="PanelContainer" parent="World"]
+margin_left = 7.0
+margin_top = 93.0
+margin_right = 255.0
+margin_bottom = 336.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="World/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 241.0
+margin_bottom = 236.0
+
+[node name="NeedA" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+label_name = "Need A"
+need_source_path = NodePath("../../../NeedSource")
+
+[node name="NeedB" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 69.0
+margin_bottom = 134.0
+label_name = "Need B"
+need_key = 1
+need_source_path = NodePath("../../../NeedSource")
+
+[node name="NeedC" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 138.0
+margin_bottom = 203.0
+label_name = "Need C"
+need_key = 1
+need_source_path = NodePath("../../../NeedSource")
+
+[node name="NeedSource" type="Node2D" parent="World"]
+position = Vector2( 366.637, 244.425 )
+script = ExtResource( 3 )
+pipe_entrance_path = NodePath("../DropTest")
+death_screen_path = NodePath("../../Overlay/DeathScreen")
+
+[node name="Sprite" type="Sprite" parent="World/NeedSource"]
+texture = ExtResource( 2 )
+
+[node name="Oats" parent="World" instance=ExtResource( 4 )]
+margin_left = 527.0
+margin_top = 21.0
+margin_right = 567.0
+margin_bottom = 61.0
+substance = 1
+rate = 0.1
+
+[node name="SoySauce" parent="World" instance=ExtResource( 4 )]
+margin_left = 659.484
+margin_top = 21.0
+margin_right = 699.484
+margin_bottom = 61.0
+substance = 2
+rate = 0.2
+
+[node name="SubstanceSpawner" parent="World" instance=ExtResource( 7 )]
 substance_scene = ExtResource( 4 )
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="DeathScreen" type="ColorRect" parent="Overlay"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+retry_button_path = NodePath("../../OverlayUI/RetryButton")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/DeathScreen"]
+anims/FadeToBlack = SubResource( 1 )
+
+[node name="OverlayUI" type="CanvasLayer" parent="."]
+
+[node name="RetryButton" type="Button" parent="OverlayUI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -22.5
+margin_top = -10.0
+margin_right = 22.5
+margin_bottom = 10.0
+text = "Retry"
+flat = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

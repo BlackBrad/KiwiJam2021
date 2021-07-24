@@ -9,8 +9,10 @@ export(float) var need_a_drain_rate = 1.0
 export(float) var need_b_drain_rate = 2.0
 
 export(NodePath) var pipe_entrance_path
+export(NodePath) var death_screen_path
 
 var source
+var death_screen
 
 var needs = {
 	Globals.Needs.A: 0.0,
@@ -23,6 +25,8 @@ func _ready():
 
 	var pipe_entrance = get_node(pipe_entrance_path)
 	pipe_entrance.connect('connect_substance', self, 'on_connect_substance')
+
+	death_screen = get_node(death_screen_path)
 
 func _physics_process(delta):
 	var need_rates = {}
@@ -52,6 +56,7 @@ func _physics_process(delta):
 	# Check for death
 	if needs[Globals.Needs.A] <= 0.0:
 		print("HE DEAD")
+		on_death()
 
 func get_needs_value(key):
 	return needs[key]
@@ -59,3 +64,6 @@ func get_needs_value(key):
 func on_connect_substance(substance_source):
 	print('on_connect_substance called %s' % substance_source)
 	source = substance_source
+
+func on_death():
+	death_screen.play()
