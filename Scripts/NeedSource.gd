@@ -10,10 +10,7 @@ export(float) var need_b_drain_rate = 2.0
 
 export(NodePath) var pipe_entrance_path
 
-var need_rates = {
-	Globals.Needs.A: 0.0,
-	Globals.Needs.B: 0.0,
-}
+var source
 
 var needs = {
 	Globals.Needs.A: 0.0,
@@ -28,6 +25,24 @@ func _ready():
 	pipe_entrance.connect('connect_substance', self, 'on_connect_substance')
 
 func _physics_process(delta):
+	var need_rates = {}
+
+	for key in needs:
+		need_rates[key] = 0
+
+	if source:
+		var substance = source.drain_substance()
+		print('Draining substance %s' % substance)
+		if substance == Globals.Substances.OATS:
+			print("OATS")
+			need_rates[Globals.Needs.A] = 5.0
+			need_rates[Globals.Needs.B] = -0.5
+		if substance == Globals.Substances.SOY_SAUCE:
+			need_rates[Globals.Needs.B] = 2.2
+		if substance == Globals.Substances.NONE:
+			source.queue_free()
+			source = null
+
 	needs[Globals.Needs.A] += -need_a_drain_rate * delta
 	needs[Globals.Needs.B] += -need_b_drain_rate * delta
 
@@ -42,13 +57,6 @@ func _physics_process(delta):
 func get_needs_value(key):
 	return needs[key]
 
-func on_connect_substance(substance):
-	print('on_connect_substance called %s' % substance)
-	for key in need_rates:
-		need_rates[key] = 0
-
-	if substance == Globals.Substances.OATS:
-		need_rates[Globals.Needs.A] = 5.0
-		need_rates[Globals.Needs.B] = -0.5
-	if substance == Globals.Substances.SOY_SAUCE:
-		need_rates[Globals.Needs.B] = 2.2
+func on_connect_substance(substance_source):
+	print('on_connect_substance called %s' % substance_source)
+	source = substance_source

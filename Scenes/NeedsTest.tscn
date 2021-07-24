@@ -64,11 +64,14 @@ pipe_entrance_path = NodePath("../DropTest")
 texture = ExtResource( 2 )
 
 [node name="Oats" parent="." instance=ExtResource( 4 )]
+substance = 1
+rate = 0.1
 
 [node name="SoySauce" parent="." instance=ExtResource( 4 )]
 margin_left = 659.484
 margin_right = 699.484
-substance = 1
+substance = 2
+rate = 0.2
 
 [node name="DropTest" type="Control" parent="."]
 margin_left = 588.0
