@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/scary_ewah_lower_gain.wav-57ed6daca189082f4791d38b90d8ae34.sample"
+
+[deps]
+
+source_file="res://Audio/scary_ewah_lower_gain.wav"
+dest_files=[ "res://.import/scary_ewah_lower_gain.wav-57ed6daca189082f4791d38b90d8ae34.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

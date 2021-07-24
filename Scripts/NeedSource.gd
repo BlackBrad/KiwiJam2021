@@ -39,7 +39,6 @@ func _physics_process(delta):
 
 		if source.get_ref():
 			var substance = source.get_ref().drain_substance()
-			print('Draining substance %s' % substance)
 			if substance == Globals.Substances.OATS:
 				need_rates[Globals.Needs.A] = 5.0
 				need_rates[Globals.Needs.B] = -0.5

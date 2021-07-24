@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/slurps_3.wav-0463608fd2e7dad42dba4dde9131b7b9.sample"
+
+[deps]
+
+source_file="res://Audio/slurps_3.wav"
+dest_files=[ "res://.import/slurps_3.wav-0463608fd2e7dad42dba4dde9131b7b9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

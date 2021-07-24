@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/all_screws.wav-6c7a601ffbc0aa8e6d49e1dd8856eb8f.sample"
+
+[deps]
+
+source_file="res://Audio/all_screws.wav"
+dest_files=[ "res://.import/all_screws.wav-6c7a601ffbc0aa8e6d49e1dd8856eb8f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
