@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/NeedUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/ManMeat.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scripts/RetryButton.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/DeathScreen.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Chair.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Audio/FranticScreaming_3.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeToBlack"
@@ -116,6 +117,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 retry_button_path = NodePath("../../OverlayUI/RetryButton")
+
+[node name="DeathScream" type="AudioStreamPlayer" parent="Overlay/DeathScreen"]
+stream = ExtResource( 11 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Overlay/DeathScreen"]
 anims/FadeToBlack = SubResource( 1 )

@@ -9,6 +9,7 @@ func _ready():
 	hide()
 	retry_button = get_node(retry_button_path)
 	animation_player.connect('animation_finished', self, 'on_animation_finished')
+	
 
 func on_animation_finished(animation_name: String):
 	print('animation finished')
@@ -17,3 +18,4 @@ func on_animation_finished(animation_name: String):
 func play():
 	show() # NOTE: This blocks player mouse interaction
 	animation_player.play('FadeToBlack')
+	$DeathScream.play()
