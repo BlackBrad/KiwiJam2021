@@ -1,58 +1,42 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/DragTest.gd" type="Script" id=1]
 [ext_resource path="res://Audio/click_1.wav" type="AudioStream" id=2]
 [ext_resource path="res://Art/mockup.png" type="Texture" id=3]
 
-[node name="Substance" type="Control"]
-margin_left = -50.0
-margin_top = -65.0
-margin_right = 50.0
-margin_bottom = 65.0
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 51.5, 60.5 )
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( 61.772, 52.0295 )
 scale = Vector2( 0.5, 0.5 )
 offset = Vector2( -500, -100 )
 texture = ExtResource( 3 )
 polygon = PoolVector2Array( 381.482, 1.23457, 377.778, 234.568, 586.42, 241.975, 596.296, 2.46913 )
 uv = PoolVector2Array( 381.482, 1.23457, 377.778, 234.568, 586.42, 241.975, 596.296, 2.46913 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -50.0
-margin_top = -65.0
-margin_right = 50.0
-margin_bottom = 65.0
-mouse_filter = 2
-color = Color( 0.992157, 0, 1, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -6.5, 9.5 )
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -79.0102
-margin_top = -48.3369
-margin_right = 87.9898
-margin_bottom = 14.6631
+margin_left = -83.0
+margin_top = -5.5
+margin_right = 84.0
+margin_bottom = 57.5
 text = "<SUBSTANCE>"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
