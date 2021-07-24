@@ -33,8 +33,7 @@ var boy_status_effects = {
 	Globals.Substances.HOT_WATER: {
 		Globals.Needs.A: 0,
 		Globals.Needs.B: 5.0
-	},
-	Globals.Substances.NONE: {}
+	}
 }
 
 func _ready():
@@ -54,17 +53,16 @@ func _physics_process(delta):
 			Globals.Needs.B: need_b_drain_rate
 		}
 		var need_rates = {}
-		
 		for need in decay_rates:
 			need_rates[need] = decay_rates[need]
 
 		if source.get_ref():
 			var substance = source.get_ref().drain_substance(delta)
-			print("Applying effect:")
-			print(boy_status_effects[substance])
-			for key in boy_status_effects[substance]:
-				need_rates[key] += boy_status_effects[substance][key]
-		
+			if substance != Globals.Substances.NONE:
+				print("Applying effect:")
+				print(boy_status_effects[substance])
+				for key in boy_status_effects[substance]:
+					need_rates[key] += boy_status_effects[substance][key]
 		for key in needs:
 			needs[key] += need_rates[key] * delta
 			needs[key] = clamp(needs[key], 0.0, 100.0)
