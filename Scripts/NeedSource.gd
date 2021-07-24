@@ -47,8 +47,9 @@ func _ready():
 	death_screen = get_node(death_screen_path)
 
 func _physics_process(delta):
+	var decay_rates = {}
 	if is_alive:
-  	var decay_rates = {
+		decay_rates = {
 		Globals.Needs.A: need_a_drain_rate,
 		Globals.Needs.B: need_b_drain_rate
 	}
