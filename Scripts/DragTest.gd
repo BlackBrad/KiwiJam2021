@@ -93,17 +93,22 @@ func _input(event):
 
 func _physics_process(delta):
 	var acceleration = Vector2(0, 0)
-	if _state != State.Idle:
-		var diff = _target_position - self.global_position
-		var dir = diff.normalized()
-		var strength = 400.0
-		if _state == State.Snapping:
-			strength = 700.0
-		acceleration = dir * strength * diff.length()
+	var target_position = _target_position
+	var target_rotation = _target_rotation
 
 	var friction = 19.0
-	if _state == State.Snapping:
+	var strength = 400.0
+	if _state == State.Snapping and _sink:
+		target_position = _sink.global_position
+		target_rotation = _sink.global_rotation
+		strength = 700.0
 		friction = 10.0
+
+	if _state != State.Idle:
+		var diff = target_position - self.global_position
+		var dir = diff.normalized()
+		acceleration = dir * strength * diff.length()
+
 	_velocity += -_velocity * friction * delta
 	_velocity += acceleration * delta
 
@@ -111,8 +116,10 @@ func _physics_process(delta):
 
 	var angular_acceleration = 0.0
 	if _state == State.Snapping:
-		var diff = _target_rotation - self.global_rotation
+		var diff = target_rotation - self.global_rotation
+		print('diff %f' % diff)
 		angular_acceleration = diff * 800.0
+		print('angular_acceleration %f' % angular_acceleration)
 
 	_angular_velocity += -_angular_velocity * 14.0 * delta;
 	_angular_velocity += angular_acceleration * delta;

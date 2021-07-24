@@ -1,6 +1,6 @@
 extends Node2D
 
-export(NodePath) var pipe_entrance_path
+onready var _sink = $sink
 
 const Globals = preload('res://Scripts/Globals.gd')
 
@@ -9,6 +9,7 @@ var source = weakref(null)
 var current_effect = {}
 
 var effect_status = {
+	Globals.Substances.NONE: {},
 	Globals.Substances.HOT_MILK: {
 		Globals.Needs.TEMP: 3.0,
 		Globals.Needs.COMFORT: -3.0
@@ -23,8 +24,7 @@ var effect_status = {
 }
 
 func _ready():
-	var pipe_entrance = get_node(pipe_entrance_path)
-	pipe_entrance.connect('connect_substance', self, 'on_connect_substance')
+	_sink.connect('connect_substance', self, 'on_connect_substance')
 	 
 
 func on_connect_substance(substance_source):

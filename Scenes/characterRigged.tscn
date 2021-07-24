@@ -1,13 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Art/sprites/character_sprites.png" type="Texture" id=1]
 [ext_resource path="res://Art/sprites/recliner_sprite.png" type="Texture" id=2]
 [ext_resource path="res://Art/sprites/bioPort_sprite.png" type="Texture" id=3]
 [ext_resource path="res://Art/sprites/headA_sprite.png" type="Texture" id=4]
 [ext_resource path="res://Art/sprites/headA_blink_sprite.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/NeedSource.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/DropTest.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Chair.gd" type="Script" id=8]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Idle"
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 150, 80 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 80, 80 )
+
+[sub_resource type="Animation" id=2]
 length = 6.0
 loop = true
 tracks/0/type = "value"
@@ -887,10 +895,12 @@ tracks/72/keys = {
 "values": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ) ]
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="ManMeat" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="Recliner" type="Node2D" parent="."]
 position = Vector2( 1231.54, -543.534 )
+script = ExtResource( 8 )
 
 [node name="reclinerMain" type="Polygon2D" parent="Recliner"]
 texture = ExtResource( 2 )
@@ -910,6 +920,15 @@ z_index = 1
 texture = ExtResource( 2 )
 polygon = PoolVector2Array( 1889.04, 935.714, 2176.18, 1038.57, 2441.9, 1011.43, 2480.47, 871.429, 2471.9, 675.714, 2579.04, 452.857, 2576.18, 207.143, 2231.9, 94.2857, 2064.75, 260, 1911.9, 437.143, 1844.75, 665.714 )
 uv = PoolVector2Array( 1889.04, 935.714, 2176.18, 1038.57, 2441.9, 1011.43, 2480.47, 871.429, 2471.9, 675.714, 2579.04, 452.857, 2576.18, 207.143, 2231.9, 94.2857, 2064.75, 260, 1911.9, 437.143, 1844.75, 665.714 )
+
+[node name="sink" type="Area2D" parent="Recliner"]
+position = Vector2( 1184, 196 )
+rotation = -0.181514
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Recliner/sink"]
+position = Vector2( 8, 36 )
+shape = SubResource( 3 )
 
 [node name="Character" type="Node2D" parent="."]
 
@@ -1038,6 +1057,14 @@ rotation = 3.84321
 rest = Transform2D( -0.763796, -0.645458, 0.645458, -0.763796, -184, 3 )
 default_length = 170.0
 
+[node name="Sink" type="Area2D" parent="Character/Skeleton2D/root_jnt/chest_jnt/socket_jnt/adaptor_jnt/tube_jnt"]
+position = Vector2( 172.604, -2.55542 )
+rotation = 1.76104
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Skeleton2D/root_jnt/chest_jnt/socket_jnt/adaptor_jnt/tube_jnt/Sink"]
+shape = SubResource( 1 )
+
 [node name="cable_jnt" type="Bone2D" parent="Character/Skeleton2D/root_jnt/chest_jnt/socket_jnt/adaptor_jnt"]
 position = Vector2( 84.9672, -141.054 )
 rotation = -1.21126
@@ -1082,4 +1109,4 @@ rotation = 2.67262
 rest = Transform2D( -0.892031, 0.451974, -0.451974, -0.892031, -316, -176 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 1 )
+anims/Idle = SubResource( 2 )

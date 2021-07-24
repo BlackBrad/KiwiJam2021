@@ -9,7 +9,6 @@ radius = 40.0
 
 [node name="Chair" type="Node2D"]
 script = ExtResource( 2 )
-pipe_entrance_path = NodePath("Sink")
 
 [node name="couch_temp" type="Sprite" parent="."]
 scale = Vector2( 0.2, 0.2 )

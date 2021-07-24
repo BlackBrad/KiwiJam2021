@@ -2,11 +2,10 @@ extends Node2D
 
 const Globals = preload('res://Scripts/Globals.gd')
 
-export(NodePath) var pipe_entrance_path
+onready var _sink = $Character/Skeleton2D/root_jnt/chest_jnt/socket_jnt/adaptor_jnt/tube_jnt/Sink
+onready var _animation_player = $AnimationPlayer
+onready var _chair = $Recliner
 export(NodePath) var death_screen_path
-
-export(NodePath) var chair_path
-var chair_node
 
 var source = weakref(null)
 var death_screen
@@ -35,11 +34,10 @@ var boy_status_effects = {
 
 
 func _ready():
-	var pipe_entrance = get_node(pipe_entrance_path)
-	pipe_entrance.connect('connect_substance', self, 'on_connect_substance')
+	_sink.connect('connect_substance', self, 'on_connect_substance')
+	_animation_player.play('Idle')
 
 	death_screen = get_node(death_screen_path)
-	chair_node = get_node(chair_path)
 	
 	for need in Globals.Needs:
 		var need_val = Globals.Needs[need]
@@ -62,10 +60,9 @@ func _physics_process(delta):
 				need_rates[key] += boy_status_effects[substance][key]
 				
 		
-		if chair_node:
-			var chair_effect = chair_node.get_effect()
-			for key in chair_effect:
-				need_rates[key] += chair_effect[key]
+		var chair_effect = _chair.get_effect()
+		for key in chair_effect:
+			need_rates[key] += chair_effect[key]
 		
 		for key in needs:
 			needs[key] += need_rates[key] * delta

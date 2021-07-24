@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/NeedUI.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/ManMeat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/atmosbasement.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/Substance.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Audio/scary_ewah_lower_gain.wav" type="AudioStream" id=5]
@@ -9,8 +8,8 @@
 [ext_resource path="res://Scenes/SubstanceSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/RetryButton.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/DeathScreen.gd" type="Script" id=9]
-[ext_resource path="res://Scenes/Chair.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Audio/FranticScreaming_3.wav" type="AudioStream" id=11]
+[ext_resource path="res://Scenes/characterRigged.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeToBlack"
@@ -45,13 +44,10 @@ __meta__ = {
 
 [node name="World" type="CanvasLayer" parent="."]
 
-[node name="Chair" parent="World" instance=ExtResource( 10 )]
-position = Vector2( 724.027, 362.014 )
-
-[node name="ManMeat" parent="World" instance=ExtResource( 2 )]
-position = Vector2( 624.669, 358.466 )
-scale = Vector2( 0.5, 0.5 )
-chair_path = NodePath("../Chair")
+[node name="ManMeat" parent="World" instance=ExtResource( 12 )]
+position = Vector2( 183.112, 226.53 )
+scale = Vector2( 0.25, 0.25 )
+death_screen_path = NodePath("../../Overlay/DeathScreen")
 
 [node name="SubstanceSpawner" parent="World" instance=ExtResource( 7 )]
 position = Vector2( 395.553, 55.4374 )
