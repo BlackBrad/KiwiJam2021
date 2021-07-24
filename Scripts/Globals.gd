@@ -7,4 +7,5 @@ enum Substances {
 	NONE,
 	OATS,
 	SOY_SAUCE,
+	HOT_WATER,
 }
