@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/DropTest.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Chair.gd" type="Script" id=2]
+[ext_resource path="res://Art/couch_temp.png" type="Texture" id=3]
+
+[node name="Chair" type="Node2D"]
+script = ExtResource( 2 )
+pipe_entrance_path = NodePath("ChairSink")
+
+[node name="couch_temp" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="ChairSink" type="Control" parent="."]
+margin_left = 40.0
+margin_top = -250.0
+margin_right = 80.0
+margin_bottom = -210.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ChairSink"]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+color = Color( 0.337255, 1, 0, 1 )

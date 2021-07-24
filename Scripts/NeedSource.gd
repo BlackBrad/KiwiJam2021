@@ -11,7 +11,7 @@ export(float) var need_b_drain_rate = 2.0
 export(NodePath) var pipe_entrance_path
 export(NodePath) var death_screen_path
 
-var source
+var source = weakref(null)
 var death_screen
 
 var needs = {
@@ -34,17 +34,14 @@ func _physics_process(delta):
 	for key in needs:
 		need_rates[key] = 0
 
-	if source:
-		var substance = source.drain_substance()
+	if source.get_ref():
+		var substance = source.get_ref().drain_substance()
 		print('Draining substance %s' % substance)
 		if substance == Globals.Substances.OATS:
 			need_rates[Globals.Needs.A] = 5.0
 			need_rates[Globals.Needs.B] = -0.5
 		if substance == Globals.Substances.SOY_SAUCE:
 			need_rates[Globals.Needs.B] = 2.2
-		if substance == Globals.Substances.NONE:
-			source.queue_free()
-			source = null
 
 	needs[Globals.Needs.A] += -need_a_drain_rate * delta
 	needs[Globals.Needs.B] += -need_b_drain_rate * delta

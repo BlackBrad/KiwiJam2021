@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/NeedUI.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/NeedSource.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/ManMeat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Substance.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/DropTest.gd" type="Script" id=5]
 [ext_resource path="res://Art/mockup.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/SubstanceSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/RetryButton.gd" type="Script" id=8]
 [ext_resource path="res://Scripts/DeathScreen.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Chair.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeToBlack"
@@ -43,67 +42,12 @@ __meta__ = {
 
 [node name="World" type="CanvasLayer" parent="."]
 
-[node name="DropTest" type="Control" parent="World"]
-margin_left = 588.0
-margin_top = 243.0
-margin_right = 628.0
-margin_bottom = 283.0
-rect_min_size = Vector2( 40, 40 )
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Chair" parent="World" instance=ExtResource( 10 )]
+position = Vector2( 724.027, 362.014 )
 
-[node name="ColorRect" type="ColorRect" parent="World/DropTest"]
-margin_right = 40.0
-margin_bottom = 40.0
-mouse_filter = 2
-color = Color( 0.313726, 0.156863, 0.156863, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PanelContainer" type="PanelContainer" parent="World"]
-margin_left = 7.0
-margin_top = 93.0
-margin_right = 255.0
-margin_bottom = 336.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GridContainer" type="GridContainer" parent="World/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 241.0
-margin_bottom = 236.0
-
-[node name="NeedA" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
-label_name = "Need A"
-need_source_path = NodePath("../../../NeedSource")
-
-[node name="NeedB" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 69.0
-margin_bottom = 134.0
-label_name = "Need B"
-need_key = 1
-need_source_path = NodePath("../../../NeedSource")
-
-[node name="NeedC" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 138.0
-margin_bottom = 203.0
-label_name = "Need C"
-need_key = 1
-need_source_path = NodePath("../../../NeedSource")
-
-[node name="NeedSource" type="Node2D" parent="World"]
-position = Vector2( 366.637, 244.425 )
-script = ExtResource( 3 )
-pipe_entrance_path = NodePath("../DropTest")
-death_screen_path = NodePath("../../Overlay/DeathScreen")
-
-[node name="Sprite" type="Sprite" parent="World/NeedSource"]
-texture = ExtResource( 2 )
+[node name="ManMeat" parent="World" instance=ExtResource( 2 )]
+position = Vector2( 624.669, 358.466 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Oats" parent="World" instance=ExtResource( 4 )]
 margin_left = 527.0
@@ -123,6 +67,39 @@ rate = 0.2
 
 [node name="SubstanceSpawner" parent="World" instance=ExtResource( 7 )]
 substance_scene = ExtResource( 4 )
+
+[node name="PanelContainer" type="PanelContainer" parent="World"]
+margin_left = 7.0
+margin_top = 93.0
+margin_right = 255.0
+margin_bottom = 336.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="World/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 241.0
+margin_bottom = 236.0
+
+[node name="NeedA" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+label_name = "Need A"
+need_source_path = NodePath("../../../ManMeat")
+
+[node name="NeedB" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 69.0
+margin_bottom = 134.0
+label_name = "Need B"
+need_key = 1
+need_source_path = NodePath("../../../ManMeat")
+
+[node name="NeedC" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 138.0
+margin_bottom = 203.0
+label_name = "Need C"
+need_key = 1
+need_source_path = NodePath("../../../ManMeat")
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 
