@@ -51,6 +51,7 @@ position = Vector2( 724.027, 362.014 )
 [node name="ManMeat" parent="World" instance=ExtResource( 2 )]
 position = Vector2( 624.669, 358.466 )
 scale = Vector2( 0.5, 0.5 )
+chair_path = NodePath("../Chair")
 
 [node name="SubstanceSpawner" parent="World" instance=ExtResource( 7 )]
 position = Vector2( 395.553, 55.4374 )
