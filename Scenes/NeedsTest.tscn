@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/NeedUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/TV.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Audio/FranticScreaming_3.wav" type="AudioStream" id=11]
 [ext_resource path="res://Scenes/characterRigged.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Audio/ambient_machine2.wav" type="AudioStream" id=13]
+[ext_resource path="res://Scenes/BackgroundGraphics.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeToBlack"
@@ -76,17 +77,6 @@ spawn_time = 1.0
 position = Vector2( 560, 100 )
 substance_scene = ExtResource( 4 )
 spawn_time = 10.0
-
-[node name="SoySauce" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 1090.23, 48.3411 )
-substance = 2
-amount = 60.0
-rate = 10.0
-
-[node name="Oats" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 1223.32, 51.0907 )
-substance = 1
-rate = 4.0
 
 [node name="PanelContainer" type="PanelContainer" parent="World"]
 anchor_bottom = 1.0
@@ -205,3 +195,7 @@ autoplay = true
 stream = ExtResource( 5 )
 volume_db = -10.0
 autoplay = true
+
+[node name="background_sprite" parent="." instance=ExtResource( 14 )]
+position = Vector2( 640.806, 362.612 )
+scale = Vector2( 0.722454, 0.722454 )
