@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Caketown 1.mp3-aca878ffb30e181fc9e9073ac4ebad5c.mp3str"
+
+[deps]
+
+source_file="res://Audio/Caketown 1.mp3"
+dest_files=[ "res://.import/Caketown 1.mp3-aca878ffb30e181fc9e9073ac4ebad5c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
