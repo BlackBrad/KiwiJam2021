@@ -51,6 +51,10 @@ var effect_status = {
 		Globals.Needs.Unwasp: 2.0,
 		Globals.Needs.Pyrexia: 3.0
 	},
+	Globals.Substances.REPELLANT: {
+		Globals.Needs.Unwasp: 4.0,
+		Globals.Needs.Pyrexia: -3.0
+	},
 	Globals.Substances.NONE: {}
 }
 
