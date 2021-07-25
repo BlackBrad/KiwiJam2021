@@ -11,6 +11,7 @@ export(NodePath) var death_screen_path
 export(NodePath) var tv_path
 var _tv
 
+export(NodePath) var deathLabel
 
 var source = weakref(null)
 var death_screen
@@ -20,6 +21,8 @@ var is_alive = true
 var needs = {}
 var need_rates = {}
 var world_decay_modifier = {}
+
+var death_explination = "placeholder"
 
 var boy_status_effects = {
 	Globals.Substances.OATS: {
@@ -73,9 +76,14 @@ var boy_status_effects = {
 		Globals.Needs.Aridity: -1.0
 	},
 	Globals.Substances.CIGGIES: {
-		Globals.Needs.Unwasp: 8.0,
+		Globals.Needs.Unwasp: 4.0,
 		Globals.Needs.Pyrexia: 4.0,
 		Globals.Needs.Rapaciousness: -3.0
+	},
+	Globals.Substances.REPELLANT: {
+		Globals.Needs.Unwasp: 8.0,
+		Globals.Needs.Repose: -4.0,
+		Globals.Needs.Aridity: -5.0
 	},
 	Globals.Substances.NONE: {}
 }
@@ -124,6 +132,11 @@ func _physics_process(delta):
 		# Check for death
 		for need in needs:
 			if needs[need] <= 0.0: 
+				death_explination = "Not enough " + Globals.Needs.keys()[need] +"!"
+				on_death();
+				is_alive = false
+			elif needs[need] == 100.0:
+				death_explination = "Too much " + Globals.Needs.keys()[need] + "!"
 				on_death();
 				is_alive = false
 
@@ -135,5 +148,7 @@ func on_connect_substance(substance_source):
 	source = substance_source
 
 func on_death():
+	var deathLabelNode = get_node(deathLabel)
+	deathLabelNode.set_text(death_explination)
 	death_screen.play()
 	

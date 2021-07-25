@@ -4,6 +4,7 @@ onready var animation_player = $AnimationPlayer
 export(NodePath) var retry_button_path
 
 var retry_button
+var death_explination
 
 func _ready():
 	hide()
