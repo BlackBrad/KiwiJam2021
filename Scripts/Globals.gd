@@ -27,7 +27,7 @@ const NeedInitValues = {
 	},
 	Needs.COMFORT: {
 		"decay": -0.2,
-		"init": 50.0
+		"init": 70.0
 	}
 }
 
