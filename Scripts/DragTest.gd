@@ -9,6 +9,10 @@ export(float) var rate = 1
 
 onready var label = $Label
 onready var audio_player = $AudioStreamPlayer
+onready var label_bg = $Canister/canisterColour
+onready var needle = $Canister/canisterNeedle
+
+var label_color = Color(1, 1, 1, 1)
 
 var y_bounce = 0.0
 
@@ -43,6 +47,7 @@ func _ready():
 	connect('area_exited', self, 'on_area_exited')
 	label.text = Globals.Substances.keys()[substance]
 	_target_rotation = self.global_rotation
+	label_bg.modulate = label_color
 
 func on_mouse_entered():
 	_mouse_in_area = true

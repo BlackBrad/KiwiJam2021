@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/DragTest.gd" type="Script" id=1]
 [ext_resource path="res://Audio/click_1.wav" type="AudioStream" id=2]
-[ext_resource path="res://Scenes/Canister.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Art/sprites/canister_sprite.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 70, 150 )
@@ -11,9 +11,31 @@ extents = Vector2( 70, 150 )
 scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 1 )
 
-[node name="Canister" parent="." instance=ExtResource( 4 )]
+[node name="Canister" type="Node2D" parent="."]
 position = Vector2( 5.6123, -170.196 )
 scale = Vector2( 0.25, 0.25 )
+z_index = -1
+
+[node name="canisterBase" type="Polygon2D" parent="Canister"]
+offset = Vector2( -357.083, -800 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( 40, 360, 680, 360, 680, 1560, 400, 1560, 400, 1680, 280, 1680, 280, 1560, 40, 1560 )
+uv = PoolVector2Array( 40, 360, 680, 360, 680, 1560, 400, 1560, 400, 1680, 280, 1680, 280, 1560, 40, 1560 )
+
+[node name="canisterColour" type="Polygon2D" parent="Canister"]
+position = Vector2( 0, 1022.72 )
+offset = Vector2( -357.083, -800 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( 40, 80, 680, 80, 680, 320, 40.0001, 320 )
+uv = PoolVector2Array( 40, 80, 680, 80, 680, 320, 40.0001, 320 )
+
+[node name="canisterNeedle" type="Polygon2D" parent="Canister"]
+position = Vector2( 149.502, 618.031 )
+rotation = 1.07992
+offset = Vector2( -535.902, -1614.3 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( 420, 1640, 420, 1580, 620, 1580, 620, 1640 )
+uv = PoolVector2Array( 420, 1640, 420, 1580, 620, 1580, 620, 1640 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.5, -108.5 )

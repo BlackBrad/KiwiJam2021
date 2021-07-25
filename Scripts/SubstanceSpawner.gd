@@ -36,6 +36,7 @@ func on_timeout():
 	substance.amount = spawn_table[index]['amount']
 	substance.rate = spawn_table[index]['rate']
 	substance.y_bounce = self.global_position.y
+	substance.label_color = Color(1, 0, 0, 1)
 	substance.connect('on_empty', self, 'on_empty')
 	add_child(substance)
 	substance.global_position.y -= rand_range(150, 300)
