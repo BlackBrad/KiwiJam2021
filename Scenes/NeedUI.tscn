@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/NeedUI.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Art/sprites/arrowGreen_single.png" type="Texture" id=2]
+[ext_resource path="res://Art/sprites/arrowRed_single.png" type="Texture" id=3]
+[ext_resource path="res://Art/sprites/arrowRed_double.png" type="Texture" id=4]
+[ext_resource path="res://Art/sprites/arrowGreen_double.png" type="Texture" id=5]
 
 [node name="NeedUI" type="Control"]
 margin_right = 220.0
@@ -36,12 +39,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="IncreaseArrow2" type="TextureRect" parent="ProgressBar"]
+margin_left = 176.2
+margin_top = 2.2601
+margin_right = 196.2
+margin_bottom = 22.2601
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="DecreaseArrow" type="TextureRect" parent="ProgressBar"]
 margin_left = 4.3393
 margin_top = 1.75994
 margin_right = 24.3393
 margin_bottom = 21.7599
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DecreaseArrow2" type="TextureRect" parent="ProgressBar"]
+margin_left = 4.3393
+margin_top = 1.75994
+margin_right = 24.3393
+margin_bottom = 21.7599
+texture = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false

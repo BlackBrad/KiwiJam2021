@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fonts/Hack-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/MainMenuButtonFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scripts/QuitButton.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=4]
+[ext_resource path="res://Audio/Caketown 1.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -20,7 +21,7 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 1 )
-text = "<GAME NAME>"
+text = "Tommy-Gotchi"
 
 [node name="PlayButton" type="Button" parent="."]
 margin_left = 13.4848
@@ -42,3 +43,7 @@ margin_bottom = 527.501
 custom_fonts/font = ExtResource( 2 )
 text = "Quit"
 script = ExtResource( 3 )
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
