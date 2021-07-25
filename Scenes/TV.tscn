@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Art/sprites/TV_sprite.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/DropTest.gd" type="Script" id=2]
@@ -10,6 +10,24 @@ extents = Vector2( 80, 80 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1
+
+[sub_resource type="Animation" id=3]
+resource_name = "TV_Ambient"
+length = 12.0
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9, 1.1, 1.4, 2.1, 2.6, 2.8, 4, 4.3, 4.9, 5.4, 5.5, 5.8, 6.8, 7, 7.2, 7.8, 8.2, 10, 10.4, 11, 11.2, 11.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.670588, 0.678431, 0.690196, 1 ), Color( 0.34902, 0.360784, 0.376471, 1 ), Color( 0.121569, 0.133333, 0.145098, 1 ), Color( 1, 1, 1, 1 ), Color( 0.180392, 0.396078, 0.494118, 1 ), Color( 0.592157, 0.607843, 0.615686, 1 ), Color( 0.545098, 0.658824, 0.713726, 1 ), Color( 0.223529, 0.239216, 0.247059, 1 ), Color( 1, 1, 1, 1 ), Color( 0.458824, 0.611765, 0.639216, 1 ), Color( 0.207843, 0.215686, 0.219608, 1 ), Color( 0.418182, 0.426025, 0.433512, 1 ), Color( 0.890196, 0.921569, 0.952941, 1 ), Color( 0.403922, 0.454902, 0.513726, 1 ), Color( 0.133333, 0.141176, 0.152941, 1 ), Color( 0.721569, 0.784314, 0.866667, 1 ), Color( 0.215686, 0.345098, 0.341176, 1 ), Color( 0.290196, 0.364706, 0.458824, 1 ), Color( 0.733333, 0.788235, 0.854902, 1 ), Color( 0.219608, 0.643137, 0.643137, 1 ), Color( 0.32549, 0.360784, 0.360784, 1 ), Color( 0.137255, 0.145098, 0.14902, 1 ), Color( 0.745098, 0.792157, 0.823529, 1 ), Color( 0.337255, 0.392157, 0.435294, 1 ) ]
+}
 
 [node name="TV_sprite" type="Sprite"]
 position = Vector2( 537.987, 486.394 )
@@ -29,9 +47,14 @@ shape = SubResource( 1 )
 stream = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.317865, 0.381118, 0.381118, 1 )
 material = SubResource( 2 )
 position = Vector2( 1132.13, -99.8933 )
 scale = Vector2( 1.06427, 1.06427 )
 z_index = 2
 z_as_relative = false
 texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "TV_Ambient"
+anims/TV_Ambient = SubResource( 3 )
