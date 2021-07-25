@@ -100,22 +100,50 @@ margin_top = 7.0
 margin_right = 227.0
 margin_bottom = 713.0
 
-[node name="NeedA" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
-label_name = "Need A"
+[node name="Rapaciousness" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+label_name = "Rapaciousness"
 need_source_path = NodePath("../../../ManMeat")
 
-[node name="NeedB" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+[node name="Aridity" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
 margin_top = 69.0
 margin_bottom = 134.0
-label_name = "Need B"
+label_name = "Aridity"
 need_key = 1
 need_source_path = NodePath("../../../ManMeat")
 
-[node name="NeedC" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+[node name="Pyrexia" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
 margin_top = 138.0
 margin_bottom = 203.0
-label_name = "Need C"
-need_key = 1
+label_name = "Pyrexia"
+need_key = 2
+need_source_path = NodePath("../../../ManMeat")
+
+[node name="Repose" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 207.0
+margin_bottom = 272.0
+label_name = "Repose"
+need_key = 3
+need_source_path = NodePath("../../../ManMeat")
+
+[node name="Arcaena" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 276.0
+margin_bottom = 341.0
+label_name = "Arcaena"
+need_key = 4
+need_source_path = NodePath("../../../ManMeat")
+
+[node name="Unwasp" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 345.0
+margin_bottom = 410.0
+label_name = "Unwasp"
+need_key = 5
+need_source_path = NodePath("../../../ManMeat")
+
+[node name="Unwasp2" parent="World/PanelContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 414.0
+margin_bottom = 479.0
+label_name = "Stimulation"
+need_key = 6
 need_source_path = NodePath("../../../ManMeat")
 
 [node name="TV" parent="World" instance=ExtResource( 2 )]
