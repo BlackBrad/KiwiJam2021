@@ -6,6 +6,24 @@ export(PackedScene) var substance_scene
 export(float) var spawn_time = 30.0
 onready var timer = $Timer
 
+const spawn_table = [
+	{ 
+		'substance': Globals.Substances.OATS,
+		'amount': 100,
+		'rate': 20
+	},
+	{ 
+		'substance': Globals.Substances.SOY_SAUCE,
+		'amount': 100,
+		'rate': 20
+	},
+	{ 
+		'substance': Globals.Substances.HOT_MILK,
+		'amount': 100,
+		'rate': 40
+	},
+]
+
 func _ready():
 	on_timeout()
 	timer.connect('timeout', self, 'on_timeout')
@@ -13,9 +31,10 @@ func _ready():
 
 func on_timeout():
 	var substance = substance_scene.instance()
-	substance.substance = Globals.Substances.HOT_MILK
-	substance.amount = 100
-	substance.rate = 40
+	var index = randi() % spawn_table.size()
+	substance.substance = spawn_table[index]['substance']
+	substance.amount = spawn_table[index]['amount']
+	substance.rate = spawn_table[index]['rate']
 	substance.y_bounce = self.global_position.y
 	substance.connect('on_empty', self, 'on_empty')
 	add_child(substance)
