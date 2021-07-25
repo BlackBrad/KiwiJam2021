@@ -80,18 +80,21 @@ func _input(event):
 
 		if _state == State.Dragging and not event.pressed:
 			# Stop dragging
+			var return_to_source = true
 			if _sink:
-				# Snap to sink
-				print('snapping')
-				audio_player.play()
-				_is_connected = true
-				_target_position = _sink.global_position
-				_source_position = _sink.global_position
-				_source_rotation = self.global_rotation
-				_target_rotation = _sink.global_rotation
-				_state = State.Snapping
-				_sink.connect_to_source(weakref(self))
-			else:
+				if _sink.connect_to_source(weakref(self)):
+					# Snap to sink
+					print('snapping')
+					audio_player.play()
+					_is_connected = true
+					_target_position = _sink.global_position
+					_source_position = _sink.global_position
+					_source_rotation = self.global_rotation
+					_target_rotation = _sink.global_rotation
+					_state = State.Snapping
+					return_to_source = false
+
+			if return_to_source:
 				# Return to original position
 				_target_position = _source_position
 				_target_rotation = _source_rotation

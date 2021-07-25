@@ -5,6 +5,8 @@ signal connect_substance(substance)
 var happy_sounds = []
 var RandomGen
 
+var connected_source = weakref(null)
+
 func _ready():
 	if $Audio1:
 		happy_sounds += [$Audio1]
@@ -20,7 +22,12 @@ func play_happy_sound():
 	happy_sounds[index].play()
 
 func connect_to_source(source):
-	print('drop_data called %s' % source)
-	emit_signal('connect_substance', source)
-	if happy_sounds:
-		play_happy_sound()
+	if connected_source.get_ref():
+		return false
+	else:
+		connected_source = source
+		print('drop_data called %s' % source)
+		emit_signal('connect_substance', source)
+		if happy_sounds:
+			play_happy_sound()
+		return true
