@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/TV.gd" type="Script" id=10]
 [ext_resource path="res://Audio/FranticScreaming_3.wav" type="AudioStream" id=11]
 [ext_resource path="res://Scenes/characterRigged.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/RetryContainer.gd" type="Script" id=13]
 [ext_resource path="res://Audio/ambient_machine2.wav" type="AudioStream" id=13]
 [ext_resource path="res://Scenes/BackgroundGraphics.tscn" type="PackedScene" id=14]
 
@@ -54,6 +55,7 @@ position = Vector2( 522.154, 307.938 )
 scale = Vector2( 0.25, 0.25 )
 death_screen_path = NodePath("../../Overlay/DeathScreen")
 tv_path = NodePath("../TV")
+deathLabel = NodePath("../../OverlayUI/RetryContainer/VBoxContainer/DeathReason")
 
 [node name="SubstanceSpawners" type="Node2D" parent="World"]
 position = Vector2( 250, 0 )
@@ -154,7 +156,7 @@ script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-retry_button_path = NodePath("../../OverlayUI/RetryButton")
+retry_button_path = NodePath("../../OverlayUI/RetryContainer")
 
 [node name="DeathScream" type="AudioStreamPlayer" parent="Overlay/DeathScreen"]
 stream = ExtResource( 11 )
@@ -164,16 +166,33 @@ anims/FadeToBlack = SubResource( 1 )
 
 [node name="OverlayUI" type="CanvasLayer" parent="."]
 
-[node name="RetryButton" type="Button" parent="OverlayUI"]
+[node name="RetryContainer" type="CenterContainer" parent="OverlayUI"]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -22.5
-margin_top = -10.0
-margin_right = 22.5
-margin_bottom = 10.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OverlayUI/RetryContainer"]
+margin_left = 584.0
+margin_top = 341.0
+margin_right = 696.0
+margin_bottom = 379.0
+
+[node name="DeathReason" type="Label" parent="OverlayUI/RetryContainer/VBoxContainer"]
+margin_right = 112.0
+margin_bottom = 14.0
+text = "<PLACE HOLDER>"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" type="Button" parent="OverlayUI/RetryContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 112.0
+margin_bottom = 38.0
 text = "Retry"
 flat = true
 script = ExtResource( 8 )
