@@ -28,6 +28,8 @@ var _angular_velocity: float
 var _mouse_in_area = false
 var _sink = null
 
+var invert_text_color
+
 enum State {
 	Spawning,
 	Idle,
@@ -46,6 +48,8 @@ func _ready():
 	connect('area_entered', self, 'on_area_entered')
 	connect('area_exited', self, 'on_area_exited')
 	label.text = Globals.Substances.keys()[substance]
+	if invert_text_color:
+		label.add_color_override("font_color", Color(1,1,1,1))
 	_target_rotation = self.global_rotation
 	label_bg.modulate = label_color
 
