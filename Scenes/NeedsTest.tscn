@@ -59,17 +59,17 @@ position = Vector2( 250, 0 )
 [node name="SubstanceSpawner1" parent="World/SubstanceSpawners" instance=ExtResource( 7 )]
 position = Vector2( 80, 100 )
 substance_scene = ExtResource( 4 )
-spawn_time = 10.0
+spawn_time = 1.0
 
 [node name="SubstanceSpawner2" parent="World/SubstanceSpawners" instance=ExtResource( 7 )]
 position = Vector2( 240, 100 )
 substance_scene = ExtResource( 4 )
-spawn_time = 10.0
+spawn_time = 1.0
 
 [node name="SubstanceSpawner3" parent="World/SubstanceSpawners" instance=ExtResource( 7 )]
 position = Vector2( 400, 100 )
 substance_scene = ExtResource( 4 )
-spawn_time = 10.0
+spawn_time = 1.0
 
 [node name="SubstanceSpawner4" parent="World/SubstanceSpawners" instance=ExtResource( 7 )]
 position = Vector2( 560, 100 )

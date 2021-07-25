@@ -10,6 +10,8 @@ export(float) var rate = 1
 onready var label = $Label
 onready var audio_player = $AudioStreamPlayer
 
+var y_bounce = 0.0
+
 var _is_connected = false
 var _target_position: Vector2
 var _source_position: Vector2
@@ -23,13 +25,14 @@ var _mouse_in_area = false
 var _sink = null
 
 enum State {
+	Spawning,
 	Idle,
 	Dragging,
 	Returning,
 	Snapping,
 }
 
-var _state = State.Idle
+var _state = State.Spawning
 
 signal on_empty
 
@@ -106,13 +109,24 @@ func _physics_process(delta):
 		strength = 700.0
 		friction = 10.0
 
-	if _state != State.Idle:
+	if _state == State.Spawning:
+		friction = 0.6
+		if self.global_position.y - y_bounce < 0.0:
+			acceleration = Vector2(0, 1600)
+	elif _state == State.Idle:
+		# DO nothing
+		pass
+	else:
 		var diff = target_position - self.global_position
 		var dir = diff.normalized()
 		acceleration = dir * strength * diff.length()
 
 	_velocity += -_velocity * friction * delta
 	_velocity += acceleration * delta
+	if _state == State.Spawning:
+		if self.global_position.y >= y_bounce:
+			_velocity.y = -_velocity.y * 0.8
+			self.global_rotation += sign(rand_range(-1,1)) * _velocity.y * 0.0005
 
 	self.global_position += _velocity * delta
 
