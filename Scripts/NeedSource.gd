@@ -5,7 +5,12 @@ const Globals = preload('res://Scripts/Globals.gd')
 onready var _sink = $Character/Skeleton2D/root_jnt/chest_jnt/socket_jnt/adaptor_jnt/tube_jnt/Sink
 onready var _animation_player = $AnimationPlayer
 onready var _chair = $Recliner
+
 export(NodePath) var death_screen_path
+
+export(NodePath) var tv_path
+var _tv
+
 
 var source = weakref(null)
 var death_screen
@@ -38,6 +43,7 @@ func _ready():
 	_animation_player.play('Idle')
 
 	death_screen = get_node(death_screen_path)
+	_tv = get_node(tv_path)
 	
 	for need in Globals.Needs:
 		var need_val = Globals.Needs[need]
@@ -63,6 +69,10 @@ func _physics_process(delta):
 		var chair_effect = _chair.get_effect()
 		for key in chair_effect:
 			need_rates[key] += chair_effect[key]
+			
+		var tv_effect = _tv.get_effect()
+		for key in tv_effect:
+			need_rates[key] += tv_effect[key]
 		
 		for key in needs:
 			needs[key] += need_rates[key] * delta
