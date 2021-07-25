@@ -71,6 +71,7 @@ var tv_map = {
 	Globals.Substances.EFFLUENT: TV_Shows.NEWS,
 	Globals.Substances.FONDANT: TV_Shows.MASH,
 	Globals.Substances.CIGGIES: TV_Shows.EROTIC,
+	Globals.Substances.REPELLANT: TV_Shows.ACTION
 }
 
 
