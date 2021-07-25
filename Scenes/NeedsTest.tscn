@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/TV.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/atmosbasement.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/Substance.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Audio/scary_ewah_lower_gain.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/scary_ewah_fadein_fadeout.wav" type="AudioStream" id=5]
 [ext_resource path="res://Art/mockup.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/SubstanceSpawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scripts/RetryButton.gd" type="Script" id=8]
@@ -193,7 +193,7 @@ autoplay = true
 
 [node name="Spooky" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 
 [node name="background_sprite" parent="." instance=ExtResource( 14 )]
