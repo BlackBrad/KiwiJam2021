@@ -8,8 +8,8 @@ z_index = -1
 [node name="canisterBase" type="Polygon2D" parent="."]
 offset = Vector2( -357.083, -800 )
 texture = ExtResource( 1 )
-polygon = PoolVector2Array( 40.0001, 360, 680, 360, 680, 1720, 40.0001, 1720 )
-uv = PoolVector2Array( 40.0001, 360, 680, 360, 680, 1720, 40.0001, 1720 )
+polygon = PoolVector2Array( 40, 360, 680, 360, 680, 1560, 400, 1560, 400, 1680, 280, 1680, 280, 1560, 40, 1560 )
+uv = PoolVector2Array( 40, 360, 680, 360, 680, 1560, 400, 1560, 400, 1680, 280, 1680, 280, 1560, 40, 1560 )
 
 [node name="canisterColour" type="Polygon2D" parent="."]
 position = Vector2( 0, 1022.72 )
@@ -17,3 +17,11 @@ offset = Vector2( -357.083, -800 )
 texture = ExtResource( 1 )
 polygon = PoolVector2Array( 40, 80, 680, 80, 680, 320, 40.0001, 320 )
 uv = PoolVector2Array( 40, 80, 680, 80, 680, 320, 40.0001, 320 )
+
+[node name="canisterNeedle" type="Polygon2D" parent="."]
+position = Vector2( 149.502, 618.031 )
+rotation = 1.07992
+offset = Vector2( -535.902, -1614.3 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 420, 1640, 420, 1580, 620, 1580, 620, 1640 )
+uv = PoolVector2Array( 420, 1640, 420, 1580, 620, 1580, 620, 1640 )
