@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/Hack-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/MainMenuButtonFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scripts/QuitButton.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=4]
 [ext_resource path="res://Audio/Caketown 1.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Art/sprites/kawaiiLogo.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -17,17 +18,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0.27451, 0.811765, 0.807843, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 1 )
 text = "Tommy-Gotchi"
 
 [node name="PlayButton" type="Button" parent="."]
-margin_left = 13.4848
-margin_top = 392.557
-margin_right = 51.4848
-margin_bottom = 412.557
+margin_left = 65.5435
+margin_top = 301.788
+margin_right = 173.544
+margin_bottom = 355.788
 custom_fonts/font = ExtResource( 2 )
 text = "Play"
 script = ExtResource( 4 )
@@ -36,14 +46,32 @@ __meta__ = {
 }
 
 [node name="QuitButton" type="Button" parent="."]
-margin_left = 16.1572
-margin_top = 473.501
-margin_right = 124.157
-margin_bottom = 527.501
+margin_left = 68.2159
+margin_top = 382.732
+margin_right = 176.216
+margin_bottom = 436.732
 custom_fonts/font = ExtResource( 2 )
 text = "Quit"
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
+
+[node name="logo" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -404.549
+margin_top = -373.229
+margin_right = 875.451
+margin_bottom = 544.771
+rect_scale = Vector2( 0.794246, 0.793561 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
