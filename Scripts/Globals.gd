@@ -30,7 +30,7 @@ const NeedInitValues = {
 		"init": 50.0
 	},
 	Needs.Aridity: {
-		"decay": -2.0,
+		"decay": -0.8,
 		"init": 75.0
 	},
 	Needs.Pyrexia: {

@@ -83,7 +83,8 @@ var boy_status_effects = {
 	Globals.Substances.REPELLANT: {
 		Globals.Needs.Unwasp: 8.0,
 		Globals.Needs.Repose: -4.0,
-		Globals.Needs.Aridity: 4.0
+		Globals.Needs.Aridity: 4.0,
+		Globals.Needs.Arcaena: 2.0
 	},
 	Globals.Substances.NONE: {}
 }
@@ -92,6 +93,7 @@ var boy_status_effects = {
 func _ready():
 	_sink.connect('connect_substance', self, 'on_connect_substance')
 	_animation_player.play('Idle')
+	_animation_player.connect('animation_finished', self, 'on_animation_finished')
 
 	death_screen = get_node(death_screen_path)
 	_tv = get_node(tv_path)
@@ -100,6 +102,10 @@ func _ready():
 		var need_val = Globals.Needs[need]
 		need_rates[need_val] = 0
 		needs[need_val] = Globals.get_init_val(need_val)
+
+func on_animation_finished(_animation_name):
+	if _animation_name == 'Displeased':
+		_animation_player.play('Idle')
 
 func _physics_process(delta):
 	if is_alive:
@@ -129,6 +135,8 @@ func _physics_process(delta):
 			needs[key] += need_rates[key] * delta
 			needs[key] = clamp(needs[key], 0.0, 100.0)
 
+		#if needs[Globals.Needs.Stimulation] <= 0.1:
+
 		# Check for death
 		for need in needs:
 			if needs[need] <= 0.0: 
@@ -146,6 +154,10 @@ func get_needs_value(key):
 func on_connect_substance(substance_source):
 	print('on_connect_substance called %s' % substance_source)
 	source = substance_source
+	var s = substance_source.get_ref()
+	if s:
+		if s.substance == Globals.Substances.EFFLUENT or s.substance == Globals.Substances.PINKBATTS:
+			_animation_player.play('Displeased')
 
 func on_death():
 	var deathLabelNode = get_node(deathLabel)

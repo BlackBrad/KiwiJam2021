@@ -27,12 +27,14 @@ var tv_effects = {
 	TV_Shows.ACTION:{
 		Globals.Needs.Stimulation: 3.0,
 		Globals.Needs.Repose: -1.0,
+		Globals.Needs.Arcaena: 2.0
 	},
 	TV_Shows.EROTIC: {
 		Globals.Needs.Pyrexia: 3.0,
 		Globals.Needs.Unwasp: -1.0,
 		Globals.Needs.Repose: -1.0,
-		Globals.Needs.Stimulation: 3.0
+		Globals.Needs.Stimulation: 3.0,
+		Globals.Needs.Arcaena: 1.0
 	},
 	TV_Shows.MASH: {
 		Globals.Needs.Aridity: 2.0,
