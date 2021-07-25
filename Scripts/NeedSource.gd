@@ -43,7 +43,7 @@ var boy_status_effects = {
 	Globals.Substances.WASPS: {
 		Globals.Needs.Unwasp: -5.0,
 		Globals.Needs.Rapaciousness: 8.0,
-		Globals.Needs.Aridity: -1.0,
+		Globals.Needs.Aridity: 1.0,
 		Globals.Needs.Repose: -3.0,
 		Globals.Needs.Stimulation: 1.0
 	},
@@ -83,7 +83,7 @@ var boy_status_effects = {
 	Globals.Substances.REPELLANT: {
 		Globals.Needs.Unwasp: 8.0,
 		Globals.Needs.Repose: -4.0,
-		Globals.Needs.Aridity: -5.0
+		Globals.Needs.Aridity: 4.0
 	},
 	Globals.Substances.NONE: {}
 }
