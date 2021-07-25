@@ -3,7 +3,7 @@ extends Control
 const Globals = preload('res://Scripts/Globals.gd')
 
 export(String) var label_name = "<NEED NAME>"
-export(Globals.Needs) var need_key = Globals.Needs.A
+export(Globals.Needs) var need_key = Globals.Needs.Rapaciousness
 export(NodePath) var need_source_path
 
 onready var label = $Label
@@ -34,3 +34,4 @@ func _physics_process(delta):
 		decrease_indicator.hide()
 
 	_old_amount = source_amount
+  

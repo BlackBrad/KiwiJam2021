@@ -1,8 +1,11 @@
 enum Needs {
-	A,
-	B,
-	TEMP,
-	COMFORT,
+	Rapaciousness,
+	Aridity,
+	Pyrexia,
+	Repose,
+	Arcaena,
+	Unwasp,
+	Stimulation
 }
 
 enum Substances {
@@ -10,24 +13,45 @@ enum Substances {
 	OATS,
 	SOY_SAUCE,
 	HOT_MILK,
+	WASPS,
+	GOBLINS,
+	PINKBATTS,
+	AGGREGATE,
+	MILDEW,
+	EFFLUENT,
+	FONDANT,
+	REPELLANT,
+	CIGGIES,
 }
 
 const NeedInitValues = {
-	Needs.A: {
+	Needs.Rapaciousness: {
 		"decay": -1.0,
 		"init": 50.0
 	},
-	Needs.B: {
+	Needs.Aridity: {
 		"decay": -2.0,
 		"init": 75.0
 	},
-	Needs.TEMP: {
-		"decay": -0.5,
+	Needs.Pyrexia: {
+		"decay": -0.7,
 		"init": 90.0
 	},
-	Needs.COMFORT: {
-		"decay": -0.2,
+	Needs.Repose: {
+		"decay": -0.4,
 		"init": 70.0
+	},
+	Needs.Arcaena: {
+		"decay": -0.3,
+		"init": 40
+	},
+	Needs.Unwasp: {
+		"decay": 0.0,
+		"init": 80
+	},
+	Needs.Stimulation: {
+		"decay": -0.2,
+		"init": 20
 	}
 }
 

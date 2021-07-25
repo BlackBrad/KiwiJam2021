@@ -23,16 +23,59 @@ var world_decay_modifier = {}
 
 var boy_status_effects = {
 	Globals.Substances.OATS: {
-		Globals.Needs.A: 5.0,
-		Globals.Needs.B: -2.0
+		Globals.Needs.Rapaciousness: 5.0,
+		Globals.Needs.Aridity: -2.0,
 	},
 	Globals.Substances.SOY_SAUCE: {
-		Globals.Needs.A: -1.0,
-		Globals.Needs.B: 3.0
+		Globals.Needs.Rapaciousness: 2.0,
+		Globals.Needs.Aridity: -1.0,
+		Globals.Needs.Repose: -0.5,
+		Globals.Needs.Unwasp: 3.0
 	},
 	Globals.Substances.HOT_MILK: {
-		Globals.Needs.A: 0,
-		Globals.Needs.B: 5.0
+		Globals.Needs.Aridity: 5.0,
+		Globals.Needs.Repose: 3.0,
+		Globals.Needs.Pyrexia: 2.0
+	},
+	Globals.Substances.WASPS: {
+		Globals.Needs.Unwasp: -5.0,
+		Globals.Needs.Rapaciousness: 8.0,
+		Globals.Needs.Aridity: -1.0,
+		Globals.Needs.Repose: -3.0,
+		Globals.Needs.Stimulation: 1.0
+	},
+	Globals.Substances.GOBLINS: {
+		Globals.Needs.Arcaena: 5.0,
+		Globals.Needs.Rapaciousness: 3.0,
+		Globals.Needs.Repose: -2.0
+	},
+	Globals.Substances.PINKBATTS: {
+		Globals.Needs.Pyrexia: -5.0,
+		Globals.Needs.Aridity: -4.0,
+		Globals.Needs.Arcaena: 1.0
+	},
+	Globals.Substances.AGGREGATE: {
+		Globals.Needs.Aridity: 4.0,
+		Globals.Needs.Rapaciousness: 1.0,
+	},
+	Globals.Substances.MILDEW: {
+		Globals.Needs.Aridity: 3.0,
+		Globals.Needs.Rapaciousness: -2.0,
+		Globals.Needs.Repose: -1.0,
+	},
+	Globals.Substances.EFFLUENT: {
+		Globals.Needs.Arcaena: -5.0,
+		Globals.Needs.Unwasp: 2.0,
+		Globals.Needs.Pyrexia: 1.5,
+	},
+	Globals.Substances.FONDANT: {
+		Globals.Needs.Repose: -4.0,
+		Globals.Needs.Aridity: -1.0
+	},
+	Globals.Substances.CIGGIES: {
+		Globals.Needs.Unwasp: 8.0,
+		Globals.Needs.Pyrexia: 4.0,
+		Globals.Needs.Rapaciousness: -3.0
 	},
 	Globals.Substances.NONE: {}
 }
