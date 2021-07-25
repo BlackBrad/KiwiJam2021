@@ -15,9 +15,11 @@ func on_timeout():
 	var substance = substance_scene.instance()
 	substance.substance = Globals.Substances.HOT_MILK
 	substance.amount = 100
-	substance.rate = 0.1
+	substance.rate = 40
+	substance.y_bounce = self.global_position.y
 	substance.connect('on_empty', self, 'on_empty')
 	add_child(substance)
+	substance.global_position.y -= rand_range(150, 300)
 	print('spawn substance')
 
 func on_empty():
